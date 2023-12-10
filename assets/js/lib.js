@@ -4,22 +4,39 @@ var RS_lib = function ()
 {
     var _show_body = function()
     {
+        const $body = $('#rs_show_body')
+
         $('.rs_show_tag').click(function(e){
 
             const $el = $(e.currentTarget);
-            const $body = $('#rs_show_body')
             const target = $el.data('target')
 
             $body.empty();
 
             $.get(target + '.html', function(o){
-                $('#rs_show_body').hide().html(o).fadeIn('slow');
+                $body.hide().html(o).fadeIn('slow');
 
                 _gen_gif();
             })
         })
 
-        $('.rs_show_tag').first().trigger('click')
+        $('.rs_clear_body').click(function(e) {
+            $body.empty()
+        })
+
+        $('.tab_collection').click(function(e) {
+            const $el = $(e.currentTarget)
+            const target_id = $el.attr('href')
+
+            $(target_id).find('li').first().find('a.rs_show_tag').trigger('click')
+        })
+
+        $('[href="#overview"]').trigger('click')
+    }
+
+    let _fill = function()
+    {
+        $('#my_age').text(moment().diff('1987-01-23', 'years'))
     }
 
     var _gen_gif = function()
@@ -44,10 +61,9 @@ var RS_lib = function ()
     return {
         init: function () {
             _show_body();
+            _fill()
         }
     }
 }();
 
-RS_lib.init(function(){
-    _show_body();
-});
+RS_lib.init();
