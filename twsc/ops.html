@@ -1,0 +1,34 @@
+<div class="card mb-5 mb-xl-10">
+    <div class="card-header cursor-pointer">
+        <div class="card-title m-0">
+            <span class="fs-2 fw-bold text-gray-700 m-0">維運(Nginx, Linux, Percona Cluster DB)</span>
+        </div>
+    </div>
+    <div class="card-body">
+
+        <h3 class="fw-bold mb-5">Nginx</h3>
+        <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
+            因開發上需要，我們使用對內 (Internal)與對外 (External)的代理伺服器去控管路由設定。如此能更好區分request 方向，且debug 也比較方便。
+            所以對Nginx 一些基礎設定有一定認識，而這也是必要技能。
+        </div>
+
+        <h3 class="fw-bold mb-5">Linux</h3>
+        <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
+            我們部門負責的Production 主機就有3、40台以上(有區分不同的營運商)，所以基本的Linux 操作也是必要技能。
+        </div>
+
+        <h3 class="fw-bold mb-5">Percona Cluster DB</h3>
+        <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
+            公司有通過 ISO27001 資安認證，所以時常有一些 Routing 的工作，如災難復原、Staging rotate，所以定期會針對 MySQL Percona Cluster DB (三台) 進行破壞與重建
+        </div>
+
+        <h3 class="fw-bold mb-5">其他</h3>
+        <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
+            RabbigMQ - 負責 message Routing 與權限配置，同時開發與維護用量繞送、用量收容的背景程序
+            Redis - 當作 DB cache 使用
+            Nuxt 3 - HFS 高速檔案系統的 UI 介面維護
+            Ansible - 針對一些 Routing 維運項目寫成 Ansible 腳本，定期執行
+        </div>
+
+    </div>
+</div>

@@ -5,28 +5,20 @@
         </div>
     </div>
     <div class="card-body">
-        
-        <h3 class="fw-bold mb-5">緣由</h3>
-        <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
-            會寫在前面，是因為這對於我來說是一個全新的概念。以前寫的背景程序，其實只是利用排程去打curl，這麼做雖然方便，但也有很多缺點。
-        </div>
 
         <h3 class="fw-bold mb-5">Process</h3>
         <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
-            目前公司的背景程序，其實就是以 process 為基礎下去開發的。所以實作方式與以前不同，也需考慮到更多細節。
+            以 worker, monitor 機制實作，各司其職。同時具備 parallel processing 特性，可於短時間內消耗大量任務
         </div>
+
         <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
-            因為很少接觸process，所以剛開始寫的時候，每一種觀念都很陌生，不過也相當有趣。因為概念與網頁程式不同，網頁是即時、循序的，且需要一定的網路觀念。而背景程序不需要考慮那些，反而是如何能在短時間內消耗大量的工作，考慮的是效率問題。而除錯方式也不同，網路大部分可以render在網頁上。而背景程序非常依賴log。
+            引入 Unix signal 機制，當收到特定訊號會先完成階段性任務並終止程序，以確保再次執行時程序可無縫接續。
         </div>
 
         <h3 class="fw-bold mb-5">狀態機 State machine</h3>
-        <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
-            以前常聽過狀態機，但是沒有實際經驗，但在本公司非常頻繁的使用。在處理複雜任務時，利用狀態機的概念可以很好的管理個階段任務的狀態，讓各個階段任務不會打架或被忽略。
-        </div>
 
-        <h3 class="fw-bold mb-5"></h3>
         <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
-            受益良多啊
+            大量運用狀態機 (state machine)，確保階段任務的接棒過程
         </div>
 
     </div>

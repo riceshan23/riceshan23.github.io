@@ -1,19 +1,29 @@
 <div class="card mb-5 mb-xl-10">
     <div class="card-header cursor-pointer">
         <div class="card-title m-0">
-            <span class="fs-2 fw-bold text-gray-700 m-0">效能調校(DB,HTTP)</span>
+            <span class="fs-2 fw-bold text-gray-700 m-0">效能調校(DB, API, BGSVC)</span>
         </div>
     </div>
     <div class="card-body">
         
         <h3 class="fw-bold mb-5">DB</h3>
         <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
-            DB效能調校應該是資料量大的公司都會遇到的問題。雖然資料量在億等級以內，還是會對表進行各種優化，還有對表的操作方式。尤其印象較為深刻的，微服務架構下又碰到資料量龐大與讀寫頻繁的資料表，我們花了相當的時間去解決這個問題。
+            HFS 高速檔案系統取樣工作，資料每15分鐘產生一次，一位使用者一天就會有96筆資料。當計算完平均後，還需將計算結果透過 API 轉送。透過使用 Index 與 Partition Table 調校，將整體時間由 5小時縮短至 1小時完成
         </div>
 
-        <h3 class="fw-bold mb-5">HTTP</h3>
+        <h3 class="fw-bold mb-5">大表欄位異動</h3>
         <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
-            在微服務架構下，大功能被拆分成許多小服務。優點是服務各司其職，但缺點也是會有效能瓶頸(好幾層API)。也需當心進入 infinite loop
+            千萬級別以上資料表如要異動欄位屬性(欄位、更名、異動索引等)會造成效能瓶頸，所以開發移轉工具，可大幅提高異動欄位效率。直接異動資料表屬性可能會耗時數十分鐘，使 用工具移轉幾乎是瞬間完成(不包含移轉資料的時間，對於效能瓶頸，移轉資料的時間可 忽略)
+        </div>
+
+        <h3 class="fw-bold mb-5">API</h3>
+        <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
+            一項服務如需同時取得數個 API 資訊時，可透過併發方式取得資料
+        </div>
+
+        <h3 class="fw-bold mb-5">Background service</h3>
+        <div class="fs-5 lh-lg ls-1 text-gray-800 mb-6">
+            背景程序時常處理非即時但複雜且耗時的任務，配合狀態機與 worker, monitor 機制 (Parallel processing)，可縮短任務消耗時間。
         </div>
 
     </div>
